@@ -2,14 +2,27 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "name": "Hello_World",
             "type": "go",
             "request": "launch",
             "mode": "debug",
             "remotePath": "",
             "port": 2345,
             "host": "127.0.0.1",
-            "program": "${workspaceRoot}",
+            "program": "${workspaceRoot}/helloworld",
+            "env": {},
+            "args": [],
+            "showLog": true
+        },
+        {
+            "name": "Count_Down",
+            "type": "go",
+             "request": "launch",
+            "mode": "debug",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/countdown",
             "env": {},
             "args": [],
             "showLog": true
