@@ -26,6 +26,19 @@
             "env": {},
             "args": [],
             "showLog": true
+        },
+        {
+            "name": "use lib demo",
+            "type": "go",
+             "request": "launch",
+            "mode": "debug",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/uselibdemo",
+            "env": {},
+            "args": [],
+            "showLog": true
         }
     ]
 }
