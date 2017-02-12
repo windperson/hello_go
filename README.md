@@ -1,2 +1,3 @@
 # hello_go
-golfing practice project
+udemy online go programming lang course: https://www.udemy.com/googlego/ 
+practice project
