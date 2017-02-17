@@ -2,17 +2,17 @@ package main
 
 import "fmt"
 
-var g_items []string
+var gItems []string
 
 func addItem(a string) {
-	fmt.Println("g_items current Capacity",cap(g_items))
-    g_items = append(g_items,a)
+	fmt.Println("g_items current Capacity", cap(gItems))
+	gItems = append(gItems, a)
 }
 
 func printItems() {
 	fmt.Println("g_items content:")
-	for i := 0; i < len(g_items); i++ {
-		fmt.Println(g_items[i])
+	for i := 0; i < len(gItems); i++ {
+		fmt.Println(gItems[i])
 	}
 }
 
