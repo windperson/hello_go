@@ -16,6 +16,18 @@ func printItems() {
 	}
 }
 
+func makeslice() []int {
+	s := make([]int, 0, 10)
+	s = append(s, 100)
+	return s
+}
+
+func makeMap() map[string]int {
+	var m = make(map[string]int)
+	m["a"] = 1
+	return m
+}
+
 func main() {
 	addItem("A item")
 	addItem("B item")
@@ -24,4 +36,12 @@ func main() {
 	addItem("E item")
 	addItem("F item")
 	printItems()
+
+	var s = makeslice()
+	println(s[0])
+
+	var m = makeMap()
+	fmt.Println(m)
+	var x, ok = m["b"]
+	fmt.Println(x, ok)
 }
