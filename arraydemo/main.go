@@ -37,6 +37,9 @@ func main() {
 	addItem("F item")
 	printItems()
 
+	days := [...]string{"Sat", "Sun","Mon"}
+	fmt.Println("len(days)=", len(days))
+
 	var s = makeslice()
 	println(s[0])
 
