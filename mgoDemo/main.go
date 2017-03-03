@@ -3,9 +3,9 @@ package main
 /*
 NOTE:
  example is from http://www.mrwaggel.be/post/golang-mgo-findandmodify-auto-increment-id/
- to run this example, 
+ to run this example,
  1. you need to have a connectable mongoDB which has a "testMongoDemo" collection on localhost,
- 
+
  2. run following command to first add data:
  use testMongoDemo
  db.persons.insert({"_id": "counterForPersons", "counterValue": 0})
@@ -18,7 +18,7 @@ NOTE:
 
 import (
 	"fmt"
-
+	"encoding/json"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -36,18 +36,25 @@ func main() {
 	var result bson.M
 
 	//This is to tell what field and how to modify it
-	changeInDocument := mgo.Change{
+	changeOp := mgo.Change{
 		Update:    bson.M{"$inc": bson.M{"counterValue": 1}},
 		ReturnNew: true,
 	}
 
 	//Find the document that keeps the counter value, and apply the modification
-	_, err := collection.Find(bson.M{"_id": "counterForPersons"}).Apply(changeInDocument, &result)
+	changeInfo, err := collection.Find(bson.M{"_id": "counterForPersons"}).Limit(1).Apply(changeOp, &result)
 
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Println("new increment Value is", result["counterValue"])
+
+	changeInfoStr, err := json.MarshalIndent(changeInfo, "", "  ")
+	if err != nil {
+	    fmt.Println("error:", err)
+	}
+
+	fmt.Println("changeInfo=",string(changeInfoStr))
 
 }
