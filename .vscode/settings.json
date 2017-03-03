@@ -8,6 +8,6 @@
     },
     //"go.goroot": "C:\\golang\\go175",
     //"go.gopath": "C:\\Users\\windperson\\Documents\\go_lang",
-    "go.gocodeAutoBuild": false,
+    //"go.gocodeAutoBuild": false,
     "go.formatOnSave": false
 }
