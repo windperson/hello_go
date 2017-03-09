@@ -1,5 +1,5 @@
 // Twelve days of Christmas:
-// https://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song) 
+// https://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)
 package main
 
 import "fmt"

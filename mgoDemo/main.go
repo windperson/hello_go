@@ -17,8 +17,9 @@ NOTE:
 */
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
+
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -52,9 +53,9 @@ func main() {
 
 	changeInfoStr, err := json.MarshalIndent(changeInfo, "", "  ")
 	if err != nil {
-	    fmt.Println("error:", err)
+		fmt.Println("error:", err)
 	}
 
-	fmt.Println("changeInfo=",string(changeInfoStr))
+	fmt.Println("changeInfo=", string(changeInfoStr))
 
 }

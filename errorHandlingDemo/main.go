@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+
 // DebugMode is to define running in debug or not.
 var DebugMode = true
 

@@ -51,11 +51,11 @@ func main() {
 	max := getMax(data0...)
 	fmt.Println("max of ", data0, " is:", max)
 
-    var data1 = []int{-100}
-    max = getMax(data1...)
-    fmt.Println("max of ", data1, " is:", max)
+	var data1 = []int{-100}
+	max = getMax(data1...)
+	fmt.Println("max of ", data1, " is:", max)
 
-    var data2 = []int{+100,-100}
-    max = getMax(data2...)
-    fmt.Println("max of ", data2, " is:", max)
+	var data2 = []int{+100, -100}
+	max = getMax(data2...)
+	fmt.Println("max of ", data2, " is:", max)
 }
