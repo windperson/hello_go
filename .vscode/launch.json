@@ -108,12 +108,25 @@
         {
             "name": "mongoDB findAndApply demo",
             "type": "go",
-             "request": "launch",
+            "request": "launch",
             "mode": "debug",
             "remotePath": "",
             "port": 2345,
             "host": "127.0.0.1",
             "program": "${workspaceRoot}/mgoDemo",
+            "env": {},
+            "args": [],
+            "showLog": true
+        },
+        {
+            "name": "Unit Test demo",
+            "type":"go",
+            "request": "launch",
+            "mode": "test",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/unittestDemo",
             "env": {},
             "args": [],
             "showLog": true
