@@ -22,6 +22,7 @@ import (
 
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
+	"strconv"
 )
 
 const cName = "testMongoDemo"
@@ -30,6 +31,11 @@ func main() {
 	session, _ := mgo.Dial("localhost")
 	defer session.Close()
 
+	upSertDemo(session)
+	bulkInsertDemo(session)
+}
+
+func upSertDemo(session *mgo.Session){
 	//select the "sandboxed" collection in mongoDB
 	collection := session.DB(cName).C("persons")
 
@@ -51,11 +57,55 @@ func main() {
 
 	fmt.Println("new increment Value is", result["counterValue"])
 
-	changeInfoStr, err := json.MarshalIndent(changeInfo, "", "  ")
+	printObject(changeInfo, "changeInfo=")
+}
+
+func bulkInsertDemo(session *mgo.Session){
+	len := 1000
+	var data = make([]interface{}, len)
+	var i uint = 1
+
+	for ; i < uint(len); i++ {
+
+		str := strconv.FormatUint(uint64(i),10)
+
+		title := "title" + str
+		name := "name" + str
+
+		data = append(data, struct{
+			Title string
+			Name string
+			Count uint
+		}{
+			title,
+			name,
+			i,
+		})
+	}
+
+	bulkInsert(session, data)
+
+}
+
+func bulkInsert(session *mgo.Session, data []interface{}) {
+	collection := session.DB(cName).C("bulk_insert_demo")
+
+	bulk := collection.Bulk()
+	bulk.Unordered() // this is magic part!!!
+	bulk.Insert(data...)
+	bulkResult, bulkErr := bulk.Run()
+	if bulkErr != nil {
+		panic(bulkErr)
+	}
+
+	printObject(bulkResult, "bulkResult=")
+}
+
+func printObject(o interface{}, prefix string) {
+	objString, err := json.MarshalIndent(o, "", " ")
 	if err != nil {
 		fmt.Println("error:", err)
 	}
 
-	fmt.Println("changeInfo=", string(changeInfoStr))
-
+	fmt.Println(prefix, string(objString))
 }
