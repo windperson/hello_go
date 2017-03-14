@@ -19,7 +19,7 @@ NOTE:
 import (
 	"encoding/json"
 	"fmt"
-
+	"log"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"strconv"
@@ -91,21 +91,29 @@ func bulkInsert(session *mgo.Session, data []interface{}) {
 	collection := session.DB(cName).C("bulk_insert_demo")
 
 	bulk := collection.Bulk()
-	bulk.Unordered() // this is magic part!!!
+	bulk.Unordered() // this is magic part for successful bulk insert!!!
 	bulk.Insert(data...)
 	bulkResult, bulkErr := bulk.Run()
 	if bulkErr != nil {
 		panic(bulkErr)
 	}
 
-	printObject(bulkResult, "bulkResult=")
+	logPrintObject("bulkResult=%s",bulkResult)
+
+}
+func logPrintObject(fmtStr string, o interface{}) {
+	objString, err := json.MarshalIndent(o, "", " ")
+	if err != nil {
+		log.Printf("marshal to json error:%s", err.Error())
+	}
+
+	log.Printf(fmtStr, string(objString))
 }
 
 func printObject(o interface{}, prefix string) {
 	objString, err := json.MarshalIndent(o, "", " ")
 	if err != nil {
-		fmt.Println("error:", err)
+		fmt.Printf("marshal to json error:%s", err.Error())
 	}
-
 	fmt.Println(prefix, string(objString))
 }
