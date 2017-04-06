@@ -4,10 +4,11 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "**/debug": true
+        "**/debug": true,
+        "**/debug.test": true
     },
     //"go.goroot": "C:\\golang\\go175",
     //"go.gopath": "C:\\Users\\windperson\\Documents\\go_lang",
     //"go.gocodeAutoBuild": false,
-    "go.formatOnSave": false
+    "go.formatOnSave": true
 }
