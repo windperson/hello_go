@@ -47,4 +47,10 @@ func main() {
 	fmt.Println(m)
 	var x, ok = m["b"]
 	fmt.Println(x, ok)
+
+	// verify array equalness
+	a1 := [...]int{1, 2, 3}
+	a2 := [...]int{1, 2, 3}
+	fmt.Printf("a1 address: %p, a2 address: %p\n", &a1, &a2)
+	fmt.Println("a1 and a2 are equal:", a1 == a2)
 }
