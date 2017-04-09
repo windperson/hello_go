@@ -56,8 +56,12 @@ func TestArraysEqual(t *testing.T) {
 	assert.Equal(sliceA1, sliceA2, "using assert.Equal() to exam slice of a1 & slice of a2")
 	assert.NotEqual(a1, sliceA2, "using assert.NotEqual() to exam a1 array and slice of a2")
 
-	assert.NotContains(a2, sliceA2, "using assert.NotContains() to exam a2 array and slice of a2")
-	//following will fail, which is quite strange?
-	assert.Contains(a1, sliceA2, "using assert.Contains() to exam a1 array and slice of a2")
-	assert.Contains(a1, a2, "using assert.Contains() to exam a1, a2 arrays")
+	for _, val := range sliceA2 {
+		assert.Contains(a2, val, "using assert.Contains() to exam a2 array and slice of a2")
+		assert.Contains(a1, val, "using assert.Contains() to exam a1 array and slice of a2")
+	}
+
+	for _, val := range a2 {
+		assert.Contains(a1, val, "using assert.Contains() to exam a1, a2 arrays")
+	}
 }
