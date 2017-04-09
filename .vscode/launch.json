@@ -141,7 +141,7 @@
             "host": "127.0.0.1",
             "program": "${workspaceRoot}/unittestDemo",
             "env": {},
-            "args": [],
+            "args": ["-test.short","-test.v"],
             "showLog": true
         }
     ]

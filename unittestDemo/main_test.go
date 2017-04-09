@@ -23,3 +23,13 @@ func TestSub(t *testing.T) {
 		t.FailNow()
 	}
 }
+
+func multiply(x, y int) int {
+	return x * y
+}
+
+func TestMultiply(t *testing.T) {
+	if multiply(1, 2) != 2 {
+		t.FailNow()
+	}
+}
