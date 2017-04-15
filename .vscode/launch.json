@@ -143,6 +143,19 @@
             "env": {},
             "args": ["-test.short","-test.v"],
             "showLog": true
+        },
+        {
+            "name": "Unit Test normal code",
+            "type":"go",
+            "request": "launch",
+            "mode":"debug",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/unittestDemo",
+            "env": {},
+            "args": [],
+            "showLog": true
         }
     ]
 }

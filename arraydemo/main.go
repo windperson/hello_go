@@ -53,4 +53,16 @@ func main() {
 	a2 := [...]int{1, 2, 3}
 	fmt.Printf("a1 address: %p, a2 address: %p\n", &a1, &a2)
 	fmt.Println("a1 and a2 are equal:", a1 == a2)
+	fmt.Println()
+	sliceCopy()
+}
+
+func sliceCopy() {
+	s := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	fmt.Println("origin\nlen(s)=", len(s), " s=", s)
+	sSrc := s[5:8]
+	sDest := s[4:]
+	fmt.Println("sSrc=", sSrc, ", sDest=", sDest)
+	n := copy(sDest, sSrc)
+	fmt.Println("after copy n=", n, ",\nlen(s)=", len(s), " s=", s)
 }
