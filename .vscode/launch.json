@@ -195,6 +195,19 @@
             "env": {},
             "args": [],
             "showLog": false
+        },
+        {
+            "name": "go i18n demo",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "remotePath": "",
+            "port": 2345,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/go_i18nDemo",
+            "env": {},
+            "args": [],
+            "showLog": false
         }
     ]
 }

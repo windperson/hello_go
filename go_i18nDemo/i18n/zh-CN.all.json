@@ -1,0 +1,6 @@
+[
+  {
+    "id": "settings_title",
+    "translation": "设定(zh-CN) {{.SettingTarget}}"
+  }
+]
